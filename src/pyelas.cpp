@@ -339,7 +339,6 @@ static PyMemberDef Elas_members[] = {
 };
 
 PyTypeObject ElasType = {
-	PyVarObject_HEAD_INIT(NULL, 0)
 	.tp_name      = "elas.Elas",
 	.tp_basicsize = sizeof(ElasObject),
 	.tp_itemsize  = 0,
