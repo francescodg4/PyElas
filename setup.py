@@ -1,4 +1,5 @@
 import setuptools
+import numpy
 
 elas = setuptools.Extension('elas', sources=[
         'src/pyelas.cpp',
@@ -7,7 +8,10 @@ elas = setuptools.Extension('elas', sources=[
         'src/filter.cpp',
         'src/matrix.cpp',
         'src/triangle.cpp',
-    ], define_macros=[('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')])
+    ],
+    include_dirs=[numpy.get_include()],
+    extra_compile_args = ["/std:c++20"],
+    define_macros=[('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION')])
 
 _long_descr = '''
 This package is the port to Python of libelas.
